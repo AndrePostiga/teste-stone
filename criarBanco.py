@@ -5,7 +5,6 @@ conn = MySQLdb.connect(user='bd011b993abccb', passwd='2bd4da8b', host='us-cdbr-i
 #conn.cursor().execute("DROP DATABASE `jogoteca`;")
 #conn.commit()
 
-
 criar_tabela = '''SET NAMES utf8;
     USE `heroku_f2b0b326ed67e14`;
     CREATE TABLE `produtos` (

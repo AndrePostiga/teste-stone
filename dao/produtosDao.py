@@ -1,4 +1,4 @@
-from models import Produto
+from models.produtoModel import Produto
 
 #Queries
 SQL_DELETA = 'delete from produtos where id = %s'

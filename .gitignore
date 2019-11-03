@@ -7,5 +7,4 @@ app/dao/__pycache__/
 app/models/__pycache__/
 
 #ignore files
-app/uploads/*
 .dockerfiletext2

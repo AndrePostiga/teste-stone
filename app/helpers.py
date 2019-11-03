@@ -4,29 +4,25 @@ from PIL import Image
 from io import BytesIO
 import os
 
-def salvaImagem(id, url, caminho): 
-    
-    formats = {
-        'image/jpeg': 'JPEG',
-        'image/png': 'PNG',
-        'image/gif': 'GIF'
+
+
+def getUrlFormats(url):
+    imageUrl = urllib.request.urlopen(url)
+    image_type = imageUrl.info().get('Content-Type')
+
+    return {
+        "url" : imageUrl,
+        "type" : image_type
     }
 
-    response = urllib.request.urlopen(url)
-    image_type = response.info().get('Content-Type')
-    
-    try:
-        format = formats[image_type]
-    except:
-        return jsonify({"detail" : str(e)}), 415 
-    
+def salvaImagem(id, url, caminho, response, format):     
     img = Image.open(BytesIO(response.read()))         
     img.save(f'{caminho}/produto_{id}.{format}')
 
 def excluiImagem(id):    
     arquivo = recuperarImagem(id)
     try:
-        os.remove(os.path.join(UPLOAD_PATH, arquivo))
+        os.remove(arquivo)
     except:
         return
 

@@ -1,2 +1,9 @@
+#ignore folders
+venv
 __pycache__/
+app/__pycache__/
+app/controllers/__pycache__/
+app/dao/__pycache__/
+app/models/__pycache__/
+
 .dockerfiletext2

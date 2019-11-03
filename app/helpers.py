@@ -1,4 +1,7 @@
 from config import UPLOAD_PATH
+import urllib.request
+from PIL import Image
+from io import BytesIO
 import os
 
 def salvaImagem(id, url, caminho): 
@@ -31,4 +34,4 @@ def excluiImagem(id):
 def recuperarImagem(id):
     for nome_arquivo in os.listdir(UPLOAD_PATH):
         if f'produto_{id}' in nome_arquivo:
-            return nome_arquivo  
+            return os.path.join(UPLOAD_PATH, nome_arquivo)

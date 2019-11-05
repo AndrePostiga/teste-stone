@@ -12,8 +12,7 @@ from validacao import validacaoFormulario
 produtoDao = ProdutosDao(db)
 
 @app.route('/produtos', methods=['GET'])
-def listar():
-    return jsonify(produtoDao.listar()), 200
+def listar():    
     try:
         response = jsonify(produtoDao.listar()), 200
     except:
@@ -41,7 +40,7 @@ def cadastrar():
         
     produto = produtoDao.salvar(produto)
     salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], imagem['url'], imagem['type'].split("/")[-1])
-    return redirect(url_for('busca', id = produto.id))
+    return redirect(url_for('busca', id = produto.id)), 201
 
 
 @app.route('/produtos/<int:id>', methods=['PUT'])
@@ -56,11 +55,14 @@ def atualizar(id):
     produto = produtoDao.salvar(produto)
     excluiImagem(id)
     salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], imagem['url'], imagem['type'].split("/")[-1])
-    return redirect(url_for('busca', id = id))
+    return redirect(url_for('busca', id = id)), 201
 
 
 @app.route('/produtos/<int:id>', methods=['DELETE'])
 def remover(id):    
-    produtoDao.deletar(id)
-    excluiImagem(id)
+    try:
+        produtoDao.deletar(id)
+        excluiImagem(id)
+    except:
+        return jsonify({"datail": "An error has ocurred"})
     return redirect(url_for('listar'))

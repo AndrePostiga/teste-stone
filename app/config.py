@@ -1,3 +1,4 @@
+# pip installed
 import os
 
 #APP configuration

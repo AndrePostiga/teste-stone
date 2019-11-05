@@ -1,7 +1,10 @@
+# app modules
 from config import UPLOAD_PATH
-import urllib.request
+
+# pip installed
 from PIL import Image
 from io import BytesIO
+import urllib.request
 import os
 
 

@@ -1,4 +1,5 @@
 #Desafio Mundipagg StoneCo
+
 ####Desafio para vaga de desenvolvedor júnior na Mundipagg
 ------------------------------
 
@@ -6,11 +7,11 @@
 Desenvolver uma API Rest utilizando Python e o framework Flask, e, persistir os dados utilizando MySQL
 
 ##### ``USO``
-A Aplicação utiliza docker para facilitar a compilação do ambiente de desenvolvimento em qualquer máquida, para rodar o projeto do projeto basta buildar a imagem e rodar o container
+A Aplicação utiliza docker para facilitar a compilação do ambiente de desenvolvimento em qualquer máquina, para rodar o projeto do projeto basta buildar a imagem e rodar o container dentro do diretório
 
 ```docker
 docker build -f .\Dockerfile -t andre/flask .
-docker run -it -v "seu_diretório_da_pasta_app:/var/www" -p 5000:5000 andre/flask
+docker run -it -v "./app:/var/www" -p 5000:5000 andre/flask
 `````
 
 Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e" width="20">, que permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade
@@ -21,7 +22,9 @@ A API conta com os seguintes endpoints
 
 Para realizar uma criação ou alteração basta enviar um JSON para os endpoints:
 ```
-POST /produtos ou PUT /produtos/{id}
+POST /produtos 
+ou 
+PUT /produtos/{id}
 ```
 ```JSON
 {
@@ -29,7 +32,7 @@ POST /produtos ou PUT /produtos/{id}
     "descricao": "Tenis muito legal",
     "url-imagem" : "https://static.netshoes.com.br/produtos/sandalia-infantil-nike-sunray-protect-2/37/HZM-0783-937/HZM-0783-937_detalhe1.jpg?resize=280:280",
     "categoria": "Sapato Preto Fresh Fuinha",
-    "preco": 235.0
+    "preco": 235.0 ,
     "marca": "New Balance"
 }
 ```
@@ -87,7 +90,7 @@ RUN pip install -r requirements.txt
 CMD ["python", "main.py"]
 ```
 
-Por fim, para auxiliar a criação do projeto, um arquivo contendo as configurações estáticas foi criado, afim de utilizar as constantes deixando o código mais legível. Para criar a tabela produtos um script também foi criado para facilitar a criação do projeto caso fosse migrar para um outro banco de dados relacional.
+Por fim, para auxiliar a criação do projeto, um arquivo contendo as configurações estáticas foi criado, com a finalidade de utilizar as constantes deixando o código mais legível. Para criar a tabela produtos um script também foi criado para facilitar a criação do projeto caso fosse migrar para um outro banco de dados relacional.
 
 <small>Estrutura de pastas:</small>
 ````````

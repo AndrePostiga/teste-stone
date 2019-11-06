@@ -13,7 +13,7 @@ docker build -f .\Dockerfile -t andre/flask .
 docker run -it -v "seu_diretório_da_pasta_app:/var/www" -p 5000:5000 andre/flask
 `````
 
-Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e" style ="width: 20px;">, que permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade
+Para consumir o serviço, o aplicativo utilizado foi o Postman ![Postman](https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e|width = 20), que permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade
 
 ##### ``ENDPOINTS``
 A API conta com os seguintes endpoints

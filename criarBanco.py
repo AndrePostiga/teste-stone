@@ -1,8 +1,8 @@
 import MySQLdb
 conn = MySQLdb.connect(user='bd011b993abccb', passwd='2bd4da8b', host='us-cdbr-iron-east-05.cleardb.net', port=3306)
 
-# Descomente se quiser desfazer o banco...
-#conn.cursor().execute("DROP DATABASE `jogoteca`;")
+# Descomente se quiser desfazer a tabela...
+#conn.cursor().execute("DROP table `produtos`;")
 #conn.commit()
 
 criar_tabela = '''SET NAMES utf8;
@@ -34,8 +34,8 @@ cursor.execute('INSERT INTO heroku_f2b0b326ed67e14.produtos (nome, descricao, ca
 
 cursor.execute('select * from heroku_f2b0b326ed67e14.produtos')
 print(' -------------  Produtos:  -------------')
-for jogo in cursor.fetchall():
-    print(jogo[1])
+for produto in cursor.fetchall():
+    print(produto[1])
 
 # commitando senão nada tem efeito
 conn.commit()

@@ -15,9 +15,9 @@ docker run -it -v "seu_diretório_da_pasta_app:/var/www" -p 5000:5000 andre/flas
 
 Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e" width="20">, que permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade
 
-##### ``ENDPOINTS``
+##### ```ENDPOINTS```
 A API conta com os seguintes endpoints
-<img src="https://lh3.googleusercontent.com/lv7R43x97-jE3NRElrozV6iFOtBh5BHwd0DxOrWCiFT6-PfzyPACYX14UxEZz2ICuXm4j5FwjwqQQQ=w1919-h937-rw">
+<img src="https://lh4.googleusercontent.com/3r1ooN5pu9Y4KTartRgYDy2MOg6d-ZCoDsFyNPbk-3zQfgT0V2GPMRh2B8Niqe9PqaL6XNFpjQbxvA=w1030-h937-rw">
 
 Para realizar uma criação ou alteração basta enviar um JSON para os endpoints:
 ```
@@ -42,13 +42,13 @@ Como o desafio não necessita de muitas regras de negócio, achei desnecessário
 Essa arquitetura escolhida facilita a implementação caso se queira escalar o projeto com novos modelos ou novos controllers 
 
 A Arquitetura escolhida para o desafio foi:
-<img src="https://lh6.googleusercontent.com/nuXyBI3Tz53tsTL_7JelbktzobLP2gUXN2t1aFjpkxu8xVtgMcB9g7wMmS-lukaV8gp_jA-3TWiRDw=w1919-h937-rw">
+<img src="https://lh6.googleusercontent.com/G1JXp625nv1Ejb27CUVibwIDmk7kpxb_UN7KcUM5NUTsjjUO9CxKjxegJVXkAGIef-ow7fZwd2T_kw=w1919-h937-rw">
 
 O modelo para produtos é enxuto, me utilizei da orientação a objetos para deixar o código mais semântico e fácil de ler/escrever. Ele possui apenas seus atributos e uma método que retorna meu objeto em outro formato, facilitando a manipulação em alguns casos. Caso seja necessário implementar outros métodos é possível, basta adicionar na sua classe. 
 
 Já o modelo DAO possui todas as strings SQL necessárias para realizar um CRUD básico, esta classe se aproveita do modelo da classe produto para retornar os dados de forma simplificada.
 
-<img src="https://lh6.googleusercontent.com/G_xdPy-qsvLst6GQ55TXb3fiWu4wCu48hnWcG44vQ32pzDy17mlUtzjj4WBQY33xj5xRIt_yJZaCWQ=w1030-h937-rw">
+<img src="https://lh5.googleusercontent.com/pEDzH1GoAwcFNmIyBX5Dw9tVHX2tYwANZT4kz4oCPuMa0TzDnMijvSdh6YgXMl4un5zfQUGRI4JRuQ=w1030-h937-rw">
 
 O Dockerfile roda uma imagem pronta do Python com a distribuição Alpine do Linux presente no DockerHub, algumas dependências extras foram adicionadas pois o pacote mysqlclient do Python não está funcionando caso seja instalado da web, se faz necessário utilizar os pacotes descritos abaixo, ou baixar manualmente o client e instalar via pip.
 

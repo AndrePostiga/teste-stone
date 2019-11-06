@@ -6,13 +6,18 @@
 ##### `Objetivo`
 Desenvolver uma API Rest utilizando Python e o framework Flask, e, persistir os dados utilizando MySQL
 
-##### ``USO``
+##### `USO`
 A Aplicação utiliza docker para facilitar a compilação do ambiente de desenvolvimento em qualquer máquina, para rodar o projeto do projeto basta buildar a imagem e rodar o container dentro do diretório
 
 ```docker
 docker build -f .\Dockerfile -t andre/flask .
 docker run -it -v "./app:/var/www" -p 5000:5000 andre/flask
 `````
+
+O Serviço rodará em:
+````
+http://localhost:5000/produtos
+````
 
 Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e" width="20">, que permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade
 

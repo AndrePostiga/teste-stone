@@ -11,12 +11,16 @@ from helpers import salvaImagem, excluiImagem, getUrlFormats
 from validacao import validacaoFormulario
 produtoDao = ProdutosDao(db)
 
+@app.route('/', methods=['GET'])
+def index():
+    return redirect(url_for('listar'))
+
 @app.route('/produtos', methods=['GET'])
 def listar():    
     try:
         response = jsonify(produtoDao.listar()), 200
     except:
-        response = jsonify({"detail" : "Internal Server Error"}), 500
+        response = jsonify({"detalhe" : "Erro interno de servidor"}), 500
     return response
 
 
@@ -25,7 +29,7 @@ def busca(id):
     try:
         response = jsonify(produtoDao.busca_por_id(id).json_encode()), 200
     except:
-        response = jsonify({"detail" : "Not Found"}), 404
+        response = jsonify({"detalhe" : "Não Encontrado"}), 404
     return response
 
 
@@ -37,7 +41,10 @@ def cadastrar():
     if not type(produto) is Produto:
         return jsonify(produto), 415
         
-    produto = produtoDao.salvar(produto)    
+    try:    
+        produto = produtoDao.salvar(produto)    
+    except:
+        return jsonify({"detalhe" : "Erro interno de servidor"}), 500
 
     if not produto.imagem is None:
         salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], produto.imagem)
@@ -53,7 +60,10 @@ def atualizar(id):
     if not type(produto) is Produto:
         return jsonify(produto), 415    
 
-    produto = produtoDao.salvar(produto)
+    try:    
+        produto = produtoDao.salvar(produto)    
+    except:
+        return jsonify({"detalhe": "Erro Interno de Servidor"}), 500
 
     if not produto.imagem is None:
         excluiImagem(id)        
@@ -70,5 +80,5 @@ def remover(id):
         produtoDao.deletar(id)
         excluiImagem(id)
     except:
-        return jsonify({"datail": "An error has ocurred"})
+        return jsonify({"detalhe": "Erro interno de Servidor"}), 500
     return redirect(url_for('listar'))

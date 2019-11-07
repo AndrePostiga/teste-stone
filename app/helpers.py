@@ -18,8 +18,9 @@ def getUrlFormats(url):
         "type" : image_type
     }
 
-def salvaImagem(id, url, caminho, response, format):     
-    img = Image.open(BytesIO(response.read()))         
+def salvaImagem(id, url, caminho, imagem):     
+    img = Image.open(BytesIO(imagem['url'].read()))         
+    format = imagem['type'].split("/")[-1]
     img.save(f'{caminho}/produto_{id}.{format}')
 
 def excluiImagem(id):    

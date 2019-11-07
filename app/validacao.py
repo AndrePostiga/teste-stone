@@ -1,4 +1,5 @@
 from models.produtoModel import Produto
+import urllib.request
 
 def isNumber(value):
     value = str(value)
@@ -25,11 +26,26 @@ def isImage(image_type):
     
     return True
 
-def validacaoFormulario(data, image_type, id=None):    
+def validacaoFormulario(data, id=None):    
     if not isNumber(data['preco']):
-        return {"detail" : "field price is not valid"}  
+        return {"detail" : "field price is not valid"}      
     
-    if not isImage(image_type):
+    try:
+        imagem = getUrlFormats(data['url-imagem'])
+    except:
+        return Produto(data['nome'], data['descricao'],data['categoria'], data['preco'], data['marca'], id=id)
+
+    if not isImage(imagem['type']):
         return {"detail" : "field image is not valid"}
 
-    return Produto(data['nome'], data['descricao'],data['categoria'], data['preco'], data['marca'], id)
+    return Produto(data['nome'], data['descricao'],data['categoria'], data['preco'], data['marca'], imagem=imagem, id=id)
+
+
+def getUrlFormats(url):
+    imageUrl = urllib.request.urlopen(url)
+    image_type = imageUrl.info().get('Content-Type')
+
+    return {
+        "url" : imageUrl,
+        "type" : image_type
+    }

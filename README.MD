@@ -41,6 +41,7 @@ PUT /produtos/{id}
     "marca": "New Balance"
 }
 ```
+A imagem deve ser um link que conhenha um content-type, caso contrário o programa ignorará e retornará uma resposta indicando o erro. Caso o campo url-imagem seja passado de forma incorreta, nula, ou não seja passado, o programa entenderá como um objeto sem imagem ou excluirá a existente em caso de edição.
 
 ##### ``Aplicação``
 Para criar a aplicação me baseei em projetos antigos que resolveram meus problemas de forma enxuta, organizar o projeto com um controller, um modelo e um DAO, me ajudou a escrever pouco código e realizar muitas tarefas.

@@ -32,29 +32,35 @@ def busca(id):
 @app.route('/produtos', methods=['POST'])
 def cadastrar():
     data = request.get_json()   
-    imagem = getUrlFormats(data['url-imagem'])
+    produto = validacaoFormulario(data)
 
-    produto = validacaoFormulario(data, imagem['type'])
     if not type(produto) is Produto:
         return jsonify(produto), 415
         
-    produto = produtoDao.salvar(produto)
-    salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], imagem['url'], imagem['type'].split("/")[-1])
+    produto = produtoDao.salvar(produto)    
+
+    if not produto.imagem is None:
+        salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], produto.imagem)
+
     return redirect(url_for('busca', id = produto.id))
 
 
 @app.route('/produtos/<int:id>', methods=['PUT'])
 def atualizar(id):
     data = request.get_json()    
-    imagem = getUrlFormats(data['url-imagem'])
-
-    produto = validacaoFormulario(data, imagem['type'], id)
+    produto = validacaoFormulario(data, id)
+    
     if not type(produto) is Produto:
         return jsonify(produto), 415    
 
     produto = produtoDao.salvar(produto)
-    excluiImagem(id)
-    salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], imagem['url'], imagem['type'].split("/")[-1])
+
+    if not produto.imagem is None:
+        excluiImagem(id)        
+
+    if type(produto.imagem) is dict:
+        salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], produto.imagem)
+
     return redirect(url_for('busca', id = id))
 
 

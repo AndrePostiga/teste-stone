@@ -31,7 +31,7 @@ def busca(id):
 
 @app.route('/produtos', methods=['POST'])
 def cadastrar():
-    data = request.get_json()
+    data = request.get_json()   
     imagem = getUrlFormats(data['url-imagem'])
 
     produto = validacaoFormulario(data, imagem['type'])
@@ -40,7 +40,7 @@ def cadastrar():
         
     produto = produtoDao.salvar(produto)
     salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], imagem['url'], imagem['type'].split("/")[-1])
-    return redirect(url_for('busca', id = produto.id)), 201
+    return redirect(url_for('busca', id = produto.id))
 
 
 @app.route('/produtos/<int:id>', methods=['PUT'])
@@ -55,7 +55,7 @@ def atualizar(id):
     produto = produtoDao.salvar(produto)
     excluiImagem(id)
     salvaImagem(produto.id, data['url-imagem'], app.config['UPLOAD_PATH'], imagem['url'], imagem['type'].split("/")[-1])
-    return redirect(url_for('busca', id = id)), 201
+    return redirect(url_for('busca', id = id))
 
 
 @app.route('/produtos/<int:id>', methods=['DELETE'])

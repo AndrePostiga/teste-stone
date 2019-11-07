@@ -11,7 +11,7 @@ A Aplicação utiliza docker para facilitar a compilação do ambiente de desenv
 
 ```docker
 docker build -f .\Dockerfile -t andre/flask .
-docker run -it -v "./app:/var/www" -p 5000:5000 andre/flask
+docker run -it -v "Seu_diretório_da_pasta_app:/var/www" -p 5000:5000 andre/flask
 `````
 
 O Serviço rodará em:

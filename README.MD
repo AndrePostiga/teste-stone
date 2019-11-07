@@ -1,6 +1,6 @@
-#Desafio Mundipagg StoneCo
+#`Desafio Mundipagg StoneCo`
 
-####Desafio para vaga de desenvolvedor júnior na Mundipagg
+#`Desafio para vaga de desenvolvedor júnior na Mundipagg`
 ------------------------------
 
 ##### `Objetivo`
@@ -130,11 +130,20 @@ Por fim, para auxiliar a criação do projeto, um arquivo contendo as configura�
 
 ````````            
 ##### ``Considerações``
-Apesar de ter uma experiência com programação para resolver problemas, foi a primeira vez em que me aventurei criando um serviço web. Fiz um curso rápido sobre como fazer API Rest com Python, já conhecia um pouco sobre o modelo REST, então foi engrandecedor ver como este se aplica à linguagem de programação que até então eu utilizara para programar Hardware(Raspberry) e trabalhar com dados (Pandas). É muito bom ver uma linguagem ser tão versátil de modo que muitas pessoas possam contribuir para a comunidade.
+Considerações
+Apesar de ter uma experiência com programação para resolver problemas, foi a primeira vez em que me aventurei criando um serviço web. Fiz um curso sobre a estruturação de uma API Rest com Python e já conhecia um pouco sobre o modelo REST, então foi engrandecedor ver como este se aplica à linguagem de programação que até então eu utilizara para programar hardware(Raspberry) e trabalhar com dados (Pandas). É muito interessante ver uma linguagem pode ser tão versátil de modo que muitas pessoas consigam contribuir para a comunidade.
 
-Com certeza fazer este projeto no prazo estipulado foi um desafio, dado que a semana foi turbulenta, ainda assim, sair da zona de conforto mostra que é possível superar as dificuldades encontradas ao longo do projeto. Fazer uma aplicação que eu nunca havia feito me fez encontrar problemas que nunca havia enfrentado. Com ajuda da comunidade, da iniciativa open source e documentações fui buscando a melhor reta que ajusta os pontos para finalizar, ainda sim como toda boa interpolação ela nunca representará a curva ideal. 
+Fazer este projeto no prazo estipulado foi um desafio (dado que a semana foi turbulenta), mas ainda assim, sair da zona de conforto mostra que é possível superar as dificuldades encontradas ao longo do processo de construção do código. Fazer uma aplicação que eu nunca havia feito me fez encontrar contratempos que nunca havia enfrentado. Com ajuda da comunidade, da iniciativa open source e de documentações disponíveis fui buscando a melhor maneira de ajuste. Ainda assim, como toda boa interpolação, ela nunca representará a curva ideal.
 
-Alguns pontos que podem melhorar: Criar um docker compose, aumentar a abstração do código com orientação a objetos, ou, funcional, adicionar camada de serviço com as regras de negócios, utilizar mais bibliotecas como SQLAlquemy, Flask Restplus, adicionar camadas de autenticação, utilizar outras formas de persistência de dados com bancos noSQL.
+Alguns pontos que pretendo melhorar no futuro: 
+
+Criar um docker compose; 
+Aumentar a abstração do código com orientação a objetos/funcional;
+Adicionar camada de serviço com as regras de negócios; 
+Utilizar mais bibliotecas como SQLAlquemy; 
+Flask Restplus; 
+Adicionar camadas de autenticação; 
+Utilizar outras formas de persistência de dados com bancos noSQL.
 
 
 

@@ -4,28 +4,28 @@
 ------------------------------
 
 ##### `Objetivo`
-Desenvolver uma API Rest utilizando Python e o framework Flask, e, persistir os dados utilizando MySQL
+Desenvolver uma API Rest utilizando Python e o framework Flask, persistindo os dados utilizando MySQL
 
 ##### `USO`
-A Aplicação utiliza docker para facilitar a compilação do ambiente de desenvolvimento em qualquer máquina, para rodar o projeto do projeto basta buildar a imagem e rodar o container dentro do diretório
+A Aplicação utiliza docker para facilitar a compilação do ambiente de desenvolvimento em qualquer máquina. Para rodar o projeto basta buildar a imagem e rodar o container dentro do diretório.
 
 ```docker
 docker build -f .\Dockerfile -t andre/flask .
 docker run -it -v "Seu_diretório_da_pasta_app:/var/www" -p 5000:5000 andre/flask
 `````
 
-O Serviço rodará em:
+O serviço rodará em:
 ````
 http://localhost:5000/produtos
 ````
 
-Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e" width="20">, que permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade
+Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https://www.getpostman.com/img/v2/logo-glyph.png?c01252cc6858ff9679973eb0c62ef27e" width="20">. Este permite alterar os verbos do protocolo HTTP e mandar uma requisição complexa com muita simplicidade.
 
 ##### ```ENDPOINTS```
-A API conta com os seguintes endpoints
+A API conta com os seguintes endpoints:
 <img src="https://i.imgur.com/KG3H1QU.png">
 
-Para realizar uma criação ou alteração basta enviar um JSON para os endpoints:
+Para realizar uma criação ou alteração basta enviar uma requisição em JSON para os endpoints:
 ```
 POST /produtos 
 ou 
@@ -43,17 +43,17 @@ PUT /produtos/{id}
 ```
 A imagem deve ser um link que conhenha um content-type, caso contrário o programa ignorará e retornará uma resposta indicando o erro. Caso o campo url-imagem seja passado de forma incorreta, nula, ou não seja passado, o programa entenderá como um objeto sem imagem ou excluirá a existente em caso de edição.
 
-##### ``Aplicação``
+##### ``A Aplicação``
 Para criar a aplicação me baseei em projetos antigos que resolveram meus problemas de forma enxuta, organizar o projeto com um controller, um modelo e um DAO, me ajudou a escrever pouco código e realizar muitas tarefas.
 
 Como o desafio não necessita de muitas regras de negócio, achei desnecessário seguir o modelo (MODEL -> SERVICE -> DAO), são poucas as validações que este projeto requere, não precisa de muita manipulação de dados, portanto, decidi colocá-las dentro do módulo helpers.
 
-Essa arquitetura escolhida facilita a implementação caso se queira escalar o projeto com novos modelos ou novos controllers 
+Essa arquitetura escolhida facilita a implementação caso se queira escalar o projeto com novos modelos ou novos controllers.
 
-A Arquitetura escolhida para o desafio foi:
+A arquitetura escolhida para o desafio foi:
 <img src="https://i.imgur.com/P4FUkPq.jpg">
 
-O modelo para produtos é enxuto, me utilizei da orientação a objetos para deixar o código mais semântico e fácil de ler/escrever. Ele possui apenas seus atributos e uma método que retorna meu objeto em outro formato, facilitando a manipulação em alguns casos. Caso seja necessário implementar outros métodos é possível, basta adicionar na sua classe. 
+O modelo para produtos é enxuto, utilizei a orientação a objetos para deixar o código mais semântico e fácil de ler/escrever. Ele possui apenas seus atributos e um método que retorna o objeto em outro formato, facilitando a manipulação em alguns casos. Caso seja necessário implementar outros métodos é possível, basta adicioná-los em sua respectiva classe. 
 
 Já o modelo DAO possui todas as strings SQL necessárias para realizar um CRUD básico, esta classe se aproveita do modelo da classe produto para retornar os dados de forma simplificada.
 
@@ -130,7 +130,6 @@ Por fim, para auxiliar a criação do projeto, um arquivo contendo as configura�
 
 ````````            
 ##### ``Considerações``
-Considerações
 Apesar de ter uma experiência com programação para resolver problemas, foi a primeira vez em que me aventurei criando um serviço web. Fiz um curso sobre a estruturação de uma API Rest com Python e já conhecia um pouco sobre o modelo REST, então foi engrandecedor ver como este se aplica à linguagem de programação que até então eu utilizara para programar hardware(Raspberry) e trabalhar com dados (Pandas). É muito interessante ver uma linguagem pode ser tão versátil de modo que muitas pessoas consigam contribuir para a comunidade.
 
 Fazer este projeto no prazo estipulado foi um desafio (dado que a semana foi turbulenta), mas ainda assim, sair da zona de conforto mostra que é possível superar as dificuldades encontradas ao longo do processo de construção do código. Fazer uma aplicação que eu nunca havia feito me fez encontrar contratempos que nunca havia enfrentado. Com ajuda da comunidade, da iniciativa open source e de documentações disponíveis fui buscando a melhor maneira de ajuste. Ainda assim, como toda boa interpolação, ela nunca representará a curva ideal.

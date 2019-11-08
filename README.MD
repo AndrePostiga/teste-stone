@@ -23,7 +23,7 @@ Para consumir o serviço, o aplicativo utilizado foi o Postman <img src="https:/
 
 ##### ```ENDPOINTS```
 A API conta com os seguintes endpoints:
-<img src="https://i.imgur.com/KG3H1QU.png">
+<img src="https://i.imgur.com/369gvaL.png">
 
 Para realizar uma criação ou alteração basta enviar uma requisição em JSON para os endpoints:
 ```
